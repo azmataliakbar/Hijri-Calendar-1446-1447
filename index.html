@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hijri Calender For 2025</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+  <section>
+    
+      
+          <div class="calender">
+          <div class="days-row"></div>
+          <div class="dates-row"></div>
+          </div>
+          
+        
+
+    <script>
+      // Define the months and days of the week
+      const months = [
+        { name: 'Rajab 1446', daysInMonth: 30, firstDay: 2, author: 'January 2025' }, // Rajab
+        { name: 'Shaban 1446', daysInMonth: 29, firstDay: 4, author: 'Jan - Feb 2025'  }, // February
+        { name: 'Ramadan 1446', daysInMonth: 30, firstDay: 5, author: 'March 2025'  }, // March
+        { name: 'Shawwal 1446', daysInMonth: 29, firstDay: 0, author: 'Mar - Apr 2025'  }, // April
+        { name: 'Dhul-Qadah 1446', daysInMonth: 29, firstDay: 1, author: 'Apr - May 2025'  }, // May
+        { name: 'Dhul-Hijjah 1446', daysInMonth: 29, firstDay: 2, author: 'May - Jun 2025'  }, // June
+        { name: 'Muharram 1447', daysInMonth: 30, firstDay: 3, author: 'Jun - Jul 2025'  }, // July
+        { name: 'Safar 1447', daysInMonth: 30, firstDay: 5, author: 'Jul - Aug 2025'  }, // August
+        { name: 'Rabi Al-Awwal 1447', daysInMonth: 29, firstDay: 0, author: 'Aug - Sep 2025'  }, // September
+        { name: 'Rabi Athani 1447', daysInMonth: 30, firstDay: 1, author: 'Sep - Oct 2025'  }, // October
+        { name: 'Jamadi Al-Awwal 1447', daysInMonth: 30, firstDay: 3, author: 'Oct - Nov 2025'  }, // November
+        { name: 'Jamadi Athani 1447', daysInMonth: 29, firstDay: 5, author: 'Nov - Dec 2025'  } // December
+      ];
+  
+      // Define the days of the week
+      const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  
+      // Function to create a calendar for each month
+      function createMonthCalendar(monthData) {
+        const calendar = document.createElement('div');
+        calendar.classList.add('calendar');
+  
+        const monthName = document.createElement('div');
+        monthName.classList.add('month-name');
+        monthName.textContent = monthData.name;
+        calendar.appendChild(monthName);
+  
+        // Add days of the week row
+        const daysRow = document.createElement('div');
+        daysRow.classList.add('days-row');
+        days.forEach(day => {
+          const dayDiv = document.createElement('div');
+          dayDiv.textContent = day;
+          if (day === 'Sat' || day === 'Sun') {
+            dayDiv.classList.add('red'); // Highlight weekends in red
+          }
+          daysRow.appendChild(dayDiv);
+        });
+        calendar.appendChild(daysRow);
+  
+        // Add dates dynamically for the month
+        const datesRow = document.createElement('div');
+        datesRow.classList.add('dates-row');
+  
+        // Add empty divs for padding before the first date
+        for (let i = 0; i < monthData.firstDay; i++) {
+          const emptyDiv = document.createElement('div');
+          datesRow.appendChild(emptyDiv);
+        }
+  
+        // Add dates for the month
+        for (let i = 1; i <= monthData.daysInMonth; i++) {
+          const dateDiv = document.createElement('div');
+          dateDiv.textContent = i;
+  
+          // Calculate the day index for each date
+          const dayIndex = (monthData.firstDay + i - 1) % 7;
+  
+          // Highlight weekends (Saturday and Sunday)
+          if (dayIndex === 5 || dayIndex === 6) {
+            dateDiv.classList.add('red');
+          }
+  
+          datesRow.appendChild(dateDiv);
+        }
+  
+        calendar.appendChild(datesRow);
+
+        // Create and append the author name
+        const authorName = document.createElement('div');
+        authorName.classList.add('author-name');
+        authorName.textContent = `ForEnglishMonth: ${monthData.author}`;
+        calendar.appendChild(authorName);
+
+
+        return calendar;
+      }
+  
+      // Loop through each month and add its calendar to the page
+      months.forEach(month => {
+        const monthCalendar = createMonthCalendar(month);
+        document.body.appendChild(monthCalendar);
+      });
+    </script>
+
+
+  </section>
+
+  
+
+  <script>
+    const colors = [
+      '#2196f3',
+      '#e91e63',
+      '#ffeb3b',
+      '#74ff1d'
+    ];
+
+    function createSquare() {
+      const section = document.querySelector('section');
+      const square = document.createElement('span');
+
+      const size = Math.random() * 50;
+
+      square.style.width = 20 + size + 'px';
+      square.style.height = 20 + size + 'px';
+
+      square.style.top = Math.random() * innerHeight + 'px';
+      square.style.left = Math.random() * innerWidth + 'px';
+
+      const bg = colors[Math.floor(Math.random() * colors.length)];
+      square.style.background = bg;
+
+      square.style.clipPath = 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)';
+
+      section.appendChild(square);
+
+      setTimeout(() => {
+        square.remove();
+      }, 5000);
+    }
+
+    // Continuously generate stars
+    setInterval(createSquare, 100);
+  </script>
+  
+
+</body>
+</html>
+
+
+
+<!-- Online Tutorials -->

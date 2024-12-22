@@ -1,0 +1,171 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+.calendar {
+  max-width: 300px;
+  margin: 10px;
+  text-align: center;
+  border: 2px solid white;
+  padding: 5px 0px 0px 7px;
+  border-radius: 10px;
+  background-color: black;
+  
+}
+
+
+
+.month-name {
+  font-size: 30px;
+  margin-bottom: 5px;
+  color: yellow;
+}
+
+.days-row, .dates-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 5px 0;
+}
+
+.days-row div {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 2px;
+  font-size: 15px;
+}
+
+.dates-row div {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+.red {
+  color: red;
+  font-weight: bold;
+}
+
+.author-name {
+  margin-top: 10px;
+  color: rgb(7, 243, 7);
+  font-weight: 100;
+  font-size: x-small;
+}
+
+/* Adjustments for iPhone XS and other smaller screens */
+@media (max-width: 375px) {
+  .calendar {
+    max-width: 280px; /* Reduce width to fit smaller screens */
+  }
+
+  .month-name {
+    font-size: 24px; /* Slightly smaller font size */
+  }
+
+  .days-row div, .dates-row div {
+    width: 28px; /* Smaller squares for days and dates */
+    height: 28px;
+    font-size: 12px; /* Smaller font for better readability */
+  }
+}
+
+/* For screens 640px and larger */
+@media (min-width: 640px) {
+  
+  .calendar {
+    max-width: 320px;
+    
+  }
+
+  .month-name {
+    font-size: 28px;
+    display: block;
+  }
+
+  .days-row div, .dates-row div {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  
+}
+
+/* For screens 768px and larger */
+@media (min-width: 768px) {
+  .calendar {
+    max-width: 335px;
+    margin: 10px;
+    padding-left: 15px;
+  }
+
+  .month-name {
+    font-size: 30px;
+  }
+
+  .days-row div, .dates-row div {
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+  }
+  
+  
+
+}
+
+/* Animation Styles */
+section {
+  height: auto;
+}
+
+section span {
+  position: absolute;
+  pointer-events: none;
+  background: #fff;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  ); /* Star shape */
+  animation: animate 5s linear infinite;
+  z-index: 0; /* Ensure stars are behind the calendar */
+}
+
+@keyframes animate {
+  0% {
+    transform: scale(0) translateY(0) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(-500%) rotate(360deg);
+  }
+}
